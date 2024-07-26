@@ -1,0 +1,27 @@
+composer require chriskacerguis/codeigniter-restserver
+
+Step 2: Copy Configuration File
+After installing the library, you need to copy the rest.php configuration file to your CodeIgniter's application/config directory. This file contains settings for the REST server, such as base URLs and CORS settings.
+
+Copy the rest.php file from the vendor/chriskacerguis/codeigniter-restserver/config directory to application/config/rest.php in your CodeIgniter project.
+
+
+Step 3: Use the REST_Controller in Your Controllers
+Now, you can start using the REST_Controller in your controllers. At the top of your controller file, add the following line to import the REST_Controller class:
+
+use chriskacerguis\RestServer\RestController;
+
+Then, extend your controller class from RestController instead of CI_Controller:
+
+class MyRestController extends RestController {
+    // Your controller methods here
+}
+Step 4: Define Routes
+In your routes.php file, define routes that map to your RESTful controllers. For example:
+
+$route['api/users'] = 'myrestcontroller/users';
+Additional Notes
+Ensure that your CodeIgniter project is configured to autoload Composer's autoloader. This is usually done by adding the following line to your index.php file:
+require_once BASEPATH . '../vendor/autoload.php';
+The REST_Controller library provides a range of features for building RESTful APIs, including automatic routing, input filtering, and output formatting. Refer to the official documentation for more details and examples.
+By following these steps, you can easily integrate the REST_Controller library into your CodeIgniter project to build robust RESTful APIs.
